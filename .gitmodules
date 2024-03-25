@@ -1,0 +1,4 @@
+[submodule "mogak-private"]
+    path = mogak-private
+    url = https://github.com/kokojihye/mogak-private.git
+    branch = main
