@@ -1,0 +1,3 @@
+[submodule "mogak-privates"]
+	path = mogak-privates
+	url = https://github.com/kokojihye/mogak-privates.git
