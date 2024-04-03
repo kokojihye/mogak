@@ -1,0 +1,12 @@
+### 1. 게시글 등록(MOGAK_BOARD_001)
+POST {{api-post-put-delete}}/api/regist/post
+
+### 2. 게시글 수정(MOGAK_BOARD_002)
+PUT {{api-post-put-delete}}/api/modify/post/{postId}
+
+### 3. 게시글 삭제(MOGAK_BOARD_003)
+DELETE {{api-post-put-delete}}/api/board/delete/post/{postId}
+
+### 4. 게시글 신고(
+POST {{api-post-put-delete}}/api/board/report/post/{postId}
+
