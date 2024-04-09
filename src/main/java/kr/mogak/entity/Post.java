@@ -15,6 +15,7 @@ import java.util.List;
 @Slf4j
 @Getter
 @RequiredArgsConstructor
+@Table(name = "t_post")
 @Entity
 public class Post {
     @Id
@@ -23,6 +24,7 @@ public class Post {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "author_id")
     @Comment("작성자")
     private Member author;
 
@@ -54,4 +56,13 @@ public class Post {
     @OneToMany(mappedBy = "post")
     @JsonIgnore
     private List<PostReport> postReports;
+
+    @OneToMany(mappedBy = "post")
+    @JsonIgnore
+    private List<Reply> replies;
+
+    @OneToMany(mappedBy = "post")
+    @JsonIgnore
+    private List<PostUpdateHistory> updatedPosts;
+
 }
