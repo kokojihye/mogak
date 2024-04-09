@@ -18,7 +18,7 @@ import java.util.List;
 public class Reply {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("댓글 id")
     private Long id;
 

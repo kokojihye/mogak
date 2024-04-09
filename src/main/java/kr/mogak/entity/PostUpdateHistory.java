@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Entity
 public class PostUpdateHistory {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("게시글 수정 히스토리 id")
     private Long id;
 
