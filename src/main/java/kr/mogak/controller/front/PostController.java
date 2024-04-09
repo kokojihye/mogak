@@ -13,4 +13,8 @@ public class PostController {
         return "views/board/main";
     }
 
+    @GetMapping("/post/detail")
+    public String postDetailPage() {
+        return "views/board/post_detail";
+    }
 }

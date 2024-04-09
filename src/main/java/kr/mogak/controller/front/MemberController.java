@@ -12,4 +12,10 @@ public class MemberController {
     public String myPage() {
         return "views/member/mypage";
     }
+
+    @GetMapping("/login")
+    public String loginPage() {
+        return "views/member/login";
+    }
+
 }
