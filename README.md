@@ -7,8 +7,10 @@
 |🚑 fix|버그 수정|
 |🐛 bug|버그 신고 with @FIXME|
 |📝 chore|자잘한 수정|
+|🐎 perf|성능 개선|
 |🔨 refactor|코드 리팩토링|
 |📚 docs|문서 수정|
+|🚜 move|구조 변경|
 |❗❗ BREAKING CHANGE|크리티컬한 변경 발생|
 |☔️ test|테스트 코드 수정|
 |💭 comment|주석 코드 수정|
