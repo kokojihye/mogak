@@ -14,6 +14,7 @@ import java.util.List;
 @Slf4j
 @Getter
 @RequiredArgsConstructor
+@Table(name = "t_reply_report")
 @Entity
 public class ReplyReport {
 
@@ -23,14 +24,17 @@ public class ReplyReport {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "reported_reply_id")
     @Comment("신고된 댓글")
     private Reply reply;
 
     @ManyToOne
+    @JoinColumn(name = "reporter_id")
     @Comment("신고자")
     private Member reporter;
 
     @Comment("신고 사유")
+    @Enumerated(EnumType.STRING)
     private ReportReason reportReason;
 
     @Comment("신고 상세 사유")

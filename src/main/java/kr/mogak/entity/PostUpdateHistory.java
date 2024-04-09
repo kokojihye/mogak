@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @Slf4j
 @Getter
 @RequiredArgsConstructor
+@Table(name = "t_post_update_history")
 @Entity
 public class PostUpdateHistory {
     @Id
@@ -20,10 +21,12 @@ public class PostUpdateHistory {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "post_id")
     @Comment("게시글 id")
     private Post post;
 
     @ManyToOne
+    @JoinColumn(name = "author_id")
     @Comment("작성자")
     private Member author;
 
