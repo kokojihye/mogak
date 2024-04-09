@@ -45,9 +45,9 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-task copyYML(type: Copy) {
+tasks.register('copyYML', Copy) {
 	copy {
-		from './mogak-private'
+		from './mogak-privates'
 		include "*.yml"
 		into 'src/main/resources'
 	}
