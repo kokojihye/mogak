@@ -18,7 +18,7 @@ import java.util.List;
 public class PostReport {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("게시글 신고 관리 id")
     private Long id;
 

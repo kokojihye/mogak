@@ -19,7 +19,7 @@ import java.util.List;
 public class ReplyReport {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("댓글 신고 관리 id")
     private Long id;
 
