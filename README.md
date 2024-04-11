@@ -1,4 +1,15 @@
 # Mogak
+## 실행 방법
+**로컬 실행**
+
+실행 명령어 입력 후, localhost:8080 접속
+```
+ ./gradlew bootRun
+```
+윈도우 종료
+```
+ Ctrl + c
+```
 
 ## commit message conventions
 |Tag name|Description|
