@@ -2,20 +2,19 @@ package kr.mogak.entity;
 
 import jakarta.persistence.*;
 import kr.mogak.enums.Category;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.Comment;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Slf4j
 @Getter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "t_post_update_history")
 @Entity
-public class PostUpdateHistory implements Serializable {
+public class PostUpdateHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("게시글 수정 히스토리 id")

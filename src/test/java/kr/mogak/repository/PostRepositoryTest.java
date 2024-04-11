@@ -31,11 +31,11 @@ public class PostRepositoryTest {
                 .nickname(nickname)
                 .build());
     }
-//    @After
-//    public void clean() {
-//        postRepository.deleteAll();
-//        memberRepository.deleteAll();
-//    }
+    @After
+    public void clean() {
+        postRepository.deleteAll();
+        memberRepository.deleteAll();
+    }
 
     @Test
     public void 게시글_저장하기() {

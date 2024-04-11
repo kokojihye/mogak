@@ -2,20 +2,22 @@ package kr.mogak.entity;
 
 import jakarta.persistence.*;
 import kr.mogak.enums.ReportReason;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.Comment;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
+/**
+ * BaseTime - createAt, updateAt 상속
+ */
 @Slf4j
 @Getter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "t_post_report")
 @Entity
-public class PostReport extends BaseTime implements Serializable {
+public class PostReport extends BaseTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

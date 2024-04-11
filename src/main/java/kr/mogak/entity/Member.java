@@ -6,15 +6,18 @@ import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.Comment;
 
-import java.io.Serializable;
 import java.util.List;
 
+/**
+ * BaseTime - createAt, updateAt 상속
+ */
 @Slf4j
 @Getter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "t_member")
 @Entity
-public class Member extends BaseTime implements Serializable {
+public class Member extends BaseTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
