@@ -4,20 +4,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import kr.mogak.enums.Category;
 import kr.mogak.enums.Yn;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.Comment;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * BaseTime - createAt, updateAt 상속
+ */
 @Slf4j
 @Getter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "t_post")
 @Entity
-public class Post {
+public class Post extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("게시글 id")
@@ -38,17 +41,13 @@ public class Post {
     @Comment("내용")
     private String content;
 
-    @Comment("작성일자")
-    private LocalDateTime createdAt;
-
     @Comment("수정 여부")
-    private Yn updatedYn;
-
-    @Comment("수정일자")
-    private LocalDateTime updatedAt;
+    @Enumerated(EnumType.STRING)
+    private Yn updatedYn = Yn.N;
 
     @Comment("삭제 여부")
-    private Yn deletedYn;
+    @Enumerated(EnumType.STRING)
+    private Yn deletedYn = Yn.N;
 
     @Comment("삭제일자")
     private LocalDateTime deletedAt;
@@ -65,4 +64,13 @@ public class Post {
     @JsonIgnore
     private List<PostUpdateHistory> updatedPosts;
 
+
+    @Builder
+    public Post(Long id, Member author, Category category, String title, String content) {
+        this.id = id;
+        this.author = author;
+        this.category = category;
+        this.title = title;
+        this.content = content;
+    }
 }

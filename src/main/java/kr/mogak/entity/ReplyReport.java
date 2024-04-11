@@ -1,22 +1,23 @@
 package kr.mogak.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import kr.mogak.enums.ReportReason;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.Comment;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
+/**
+ * BaseTime - createAt, updateAt 상속
+ */
 @Slf4j
 @Getter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "t_reply_report")
 @Entity
-public class ReplyReport {
+public class ReplyReport extends BaseTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,12 +40,6 @@ public class ReplyReport {
 
     @Comment("신고 상세 사유")
     private String reportReasonDetail;
-
-    @Comment("신고일자")
-    private LocalDateTime reportedAt;
-
-    @Comment("수정일자")
-    private LocalDateTime updatedAt;
 
     @Comment("취소일자")
     private LocalDateTime canceledAt;
