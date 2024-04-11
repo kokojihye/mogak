@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.Comment;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Table(name = "t_reply")
 @Entity
-public class Reply {
+public class Reply extends BaseTime implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,12 +35,6 @@ public class Reply {
 
     @Comment("내용")
     private String content;
-
-    @Comment("작성일자")
-    private LocalDateTime createdAt;
-
-    @Comment("수정일자")
-    private LocalDateTime updatedAt;
 
     @Comment("삭제일자")
     private LocalDateTime deletedAt;

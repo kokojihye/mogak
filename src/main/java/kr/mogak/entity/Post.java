@@ -4,11 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import kr.mogak.enums.Category;
 import kr.mogak.enums.Yn;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.Comment;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -17,7 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Table(name = "t_post")
 @Entity
-public class Post {
+public class Post extends BaseTime implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("게시글 id")
@@ -38,17 +40,13 @@ public class Post {
     @Comment("내용")
     private String content;
 
-    @Comment("작성일자")
-    private LocalDateTime createdAt;
-
     @Comment("수정 여부")
-    private Yn updatedYn;
-
-    @Comment("수정일자")
-    private LocalDateTime updatedAt;
+    @Enumerated(EnumType.STRING)
+    private Yn updatedYn = Yn.N;
 
     @Comment("삭제 여부")
-    private Yn deletedYn;
+    @Enumerated(EnumType.STRING)
+    private Yn deletedYn = Yn.N;
 
     @Comment("삭제일자")
     private LocalDateTime deletedAt;
@@ -65,4 +63,13 @@ public class Post {
     @JsonIgnore
     private List<PostUpdateHistory> updatedPosts;
 
+
+    @Builder
+    public Post(Long id, Member author, Category category, String title, String content) {
+        this.id = id;
+        this.author = author;
+        this.category = category;
+        this.title = title;
+        this.content = content;
+    }
 }

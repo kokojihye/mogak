@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.Comment;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Slf4j
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @Table(name = "t_post_update_history")
 @Entity
-public class PostUpdateHistory {
+public class PostUpdateHistory implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("게시글 수정 히스토리 id")
