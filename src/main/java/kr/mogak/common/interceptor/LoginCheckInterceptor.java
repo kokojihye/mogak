@@ -1,10 +1,13 @@
-package kr.mogak.common;
+package kr.mogak.common.interceptor;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
+/*
+ * 인증되지 않은 접근 확인
+ */
 @Slf4j
 public class LoginCheckInterceptor implements HandlerInterceptor {
     @Override
