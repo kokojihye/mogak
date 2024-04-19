@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Table(name = "t_reply")
 @Entity
-public class Reply {
+public class Reply extends CommonEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,15 +35,6 @@ public class Reply {
     @Comment("내용")
     private String content;
 
-    @Comment("작성일자")
-    private LocalDateTime createdAt;
-
-    @Comment("수정일자")
-    private LocalDateTime updatedAt;
-
-    @Comment("삭제일자")
-    private LocalDateTime deletedAt;
-
     @Comment("신고 누적 횟수")
     private Integer countReport;
 
@@ -52,6 +43,9 @@ public class Reply {
 
     @Comment("부모 댓글")
     private Long parentReply;
+
+    @Comment("순서")
+    private Integer sequence;
 
     @JsonIgnore
     @OneToMany(mappedBy = "reply")
