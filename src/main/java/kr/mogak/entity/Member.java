@@ -2,8 +2,7 @@ package kr.mogak.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.Comment;
 
@@ -11,19 +10,23 @@ import java.util.List;
 
 @Slf4j
 @Getter
+@NoArgsConstructor
 @RequiredArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "t_member")
 @Entity
-public class Member {
-
+public class Member extends CommonEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Comment("회원 id")
+    @Comment("id")
     private Long id;
-
     @Comment("회원 닉네임")
     private String nickname;
-
+    @Comment("로그인 id")
+    private String loginId;
+    @Comment("비밀번호")
+    private String password;
     @OneToMany(mappedBy = "author")
     @JsonIgnore
     private List<Post> posts;

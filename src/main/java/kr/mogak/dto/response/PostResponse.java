@@ -1,4 +1,4 @@
-package kr.mogak.dto;
+package kr.mogak.dto.response;
 
 import kr.mogak.entity.Member;
 import kr.mogak.entity.Post;

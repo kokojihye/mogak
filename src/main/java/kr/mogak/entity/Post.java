@@ -4,8 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import kr.mogak.enums.Category;
 import kr.mogak.enums.Yn;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.Comment;
 
@@ -14,10 +13,13 @@ import java.util.List;
 
 @Slf4j
 @Getter
+@NoArgsConstructor
 @RequiredArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "t_post")
 @Entity
-public class Post {
+public class Post extends CommonEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("게시글 id")
@@ -37,21 +39,6 @@ public class Post {
 
     @Comment("내용")
     private String content;
-
-    @Comment("작성일자")
-    private LocalDateTime createdAt;
-
-    @Comment("수정 여부")
-    private Yn updatedYn;
-
-    @Comment("수정일자")
-    private LocalDateTime updatedAt;
-
-    @Comment("삭제 여부")
-    private Yn deletedYn;
-
-    @Comment("삭제일자")
-    private LocalDateTime deletedAt;
 
     @OneToMany(mappedBy = "post")
     @JsonIgnore
